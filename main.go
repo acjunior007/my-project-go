@@ -2,8 +2,7 @@ package main
 
 import (
 	"fmt"
-	interfaces "my-project-go/Interfaces"
-	"my-project-go/mathutils"
+	"time"
 )
 
 func main() {
@@ -236,28 +235,44 @@ func main() {
 	// // Start the server
 	// http.ListenAndServe(":8080", r)
 
-	res := mathutils.Add(5, 3)
-	fmt.Println("Addition Result:", res)
+	// res := mathutils.Add(5, 3)
+	// fmt.Println("Addition Result:", res)
 
-	res = mathutils.Subtract(5, 3)
-	fmt.Println("Subtraction Result:", res)
+	// res = mathutils.Subtract(5, 3)
+	// fmt.Println("Subtraction Result:", res)
 
-	res = mathutils.Multiply(5, 3)
-	fmt.Println("Multiplication Result:", res)
+	// res = mathutils.Multiply(5, 3)
+	// fmt.Println("Multiplication Result:", res)
 
-	res, err := mathutils.Divide(15, 3)
-	if err != nil {
-		fmt.Println("Error:", err)
-	} else {
-		fmt.Println("Division Result:", res)
+	// res, err := mathutils.Divide(15, 3)
+	// if err != nil {
+	// 	fmt.Println("Error:", err)
+	// } else {
+	// 	fmt.Println("Division Result:", res)
+	// }
+
+	//* Goroutines
+	go printNumbers() //? launches the 'printNumber' function as a goroutine
+
+	//* The main function continues to run concurrently while the 'printNumbers' function executes int the background
+	fmt.Println("Main goroutine is running concurrently...")
+
+	time.Sleep(6 * time.Second) //? is used to ensure the main function doesn`t exit before the goroutines finish
+
+} // * end main
+
+// * Goroutines
+func printNumbers() {
+	for i := 1; i < 5; i++ {
+		fmt.Println(i, " ")
+		time.Sleep(time.Second)
 	}
-
-} //* end main
+}
 
 // * Function that accepts the Vehicle interface
-func StartVehicle(v interfaces.Vehicle) {
-	fmt.Println(v.Drive())
-}
+// func StartVehicle(v interfaces.Vehicle) {
+// 	fmt.Println(v.Drive())
+// }
 
 //* Polymorphism example
 // func printArea(s polimorphism.Shape) {
