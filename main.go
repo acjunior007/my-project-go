@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	interfaces "my-project-go/Interfaces"
-	"my-project-go/Structs"
+	"my-project-go/mathutils"
 )
 
 func main() {
@@ -216,13 +216,41 @@ func main() {
 	// printArea(circle)
 	// printArea(rectangle)
 
-	//* Polymorphism with interfaces
-	car := Structs.Car{Brand: "Toyota", Model: "Camry", Year: 2020}
-	bike := Structs.Bike{Make: "Yamaha", Type: "Sport"}
+	// //* Polymorphism with interfaces
+	// car := Structs.Car{Brand: "Toyota", Model: "Camry", Year: 2020}
+	// bike := Structs.Bike{Make: "Yamaha", Type: "Sport"}
 
-	// Use polimorphism to handle different types
-	StartVehicle(car)
-	StartVehicle(bike)
+	// // Use polimorphism to handle different types
+	// StartVehicle(car)
+	// StartVehicle(bike)
+
+	//* Working with third-party packages
+	// // Create a new router
+	// r := mux.NewRouter()
+
+	// // Define routes and handles
+	// r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	// 	fmt.Fprintln(w, "Welcome to the Home Page!")
+	// })
+
+	// // Start the server
+	// http.ListenAndServe(":8080", r)
+
+	res := mathutils.Add(5, 3)
+	fmt.Println("Addition Result:", res)
+
+	res = mathutils.Subtract(5, 3)
+	fmt.Println("Subtraction Result:", res)
+
+	res = mathutils.Multiply(5, 3)
+	fmt.Println("Multiplication Result:", res)
+
+	res, err := mathutils.Divide(15, 3)
+	if err != nil {
+		fmt.Println("Error:", err)
+	} else {
+		fmt.Println("Division Result:", res)
+	}
 
 } //* end main
 
