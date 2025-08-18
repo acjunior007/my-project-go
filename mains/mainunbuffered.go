@@ -25,7 +25,7 @@ func consumer(ch chan int) {
 	fmt.Println("Consumer finished")
 }
 
-func main() {
+func main_unbuffered() {
 	ch := make(chan int)
 
 	// Start goroutines
