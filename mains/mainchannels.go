@@ -10,7 +10,8 @@ func sendData(ch chan int) {
 	ch <- 42
 }
 
-func main() {
+// Commented to the mainChannel because inside de package can`t have main
+func mainChannel() {
 	ch := make(chan int)
 
 	// Launch a goroutine to send data
