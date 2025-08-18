@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-func worker(id int, ch chan string) {
+func worker_multiple(id int, ch chan string) {
 	// Simulate some work
 	fmt.Printf("Worker %d is starting...\n", id)
 	time.Sleep(2 * time.Second)
@@ -19,7 +19,7 @@ func main_multiplegourotines() {
 
 	// Start multiple goroutines
 	for i := 1; i <= 3; i++ {
-		go worker(i, ch)
+		go worker_multiple(i, ch)
 	}
 
 	// Receive messages from the channel
