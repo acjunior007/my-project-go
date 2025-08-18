@@ -7,7 +7,7 @@ func task(ch chan bool) {
 	ch <- true // Signal that the task is complete
 }
 
-func main() {
+func main_task() {
 	ch := make(chan bool)
 
 	go task(ch)
