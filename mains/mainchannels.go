@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-func sendData(ch chan int) {
+func sendDataCh(ch chan int) {
 	fmt.Println("Sending data...")
 	ch <- 42
 }
@@ -15,7 +15,7 @@ func mainChannel() {
 	ch := make(chan int)
 
 	// Launch a goroutine to send data
-	go sendData(ch)
+	go sendDataCh(ch)
 
 	// Receive data from the channel
 	value := <-ch
